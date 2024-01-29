@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flask-CORS &mdash; Flask-Cors 3.0.10 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="/_/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration" href="configuration.html" /> 
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="/_/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2023-04-11T14:13:26Z", "builder": "sphinx", "canonical_url": null, "commit": "b2c4da1f", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "index", "programming_language": "py", "project": "flask-cors", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="/_/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Flask-Cors
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flask-CORS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Docs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Flask-Cors</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Flask-CORS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/corydolphin/flask-cors/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flask-cors">
+<h1>Flask-CORS<a class="headerlink" href="#flask-cors" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://travis-ci.org/corydolphin/flask-cors"><img alt="Build Status" src="https://api.travis-ci.org/corydolphin/flask-cors.svg?branch=master" /></a> <a class="reference external" href="https://pypi.python.org/pypi/Flask-Cors/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/Flask-Cors.svg" /></a> <a class="reference external" href="https://img.shields.io/pypi/pyversions/Flask-Cors.svg"><img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/Flask-Cors.svg" /></a>
+<a class="reference external" href="https://pypi.python.org/pypi/Flask-Cors/"><img alt="License" src="http://img.shields.io/:license-mit-blue.svg" /></a></p>
+<p>A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.</p>
+<p>This package has a simple philosophy: when you want to enable CORS, you wish to enable it for all use cases on a domain.
+This means no mucking around with different allowed headers, methods, etc.</p>
+<p>By default, submission of cookies across domains is disabled due to the security implications.
+Please see the documentation for how to enable credential’ed requests, and please make sure you add some sort of <a class="reference external" href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> protection before doing so!</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install the extension with using pip, or easy_install.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -U flask-cors
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>This package exposes a Flask extension which by default enables CORS support on all routes, for all origins and methods.
+It allows parameterization of all CORS headers on a per-resource level.
+The package also contains a decorator, for those who prefer this approach.</p>
+<div class="section" id="simple-usage">
+<h3>Simple Usage<a class="headerlink" href="#simple-usage" title="Permalink to this headline">¶</a></h3>
+<p>In the simplest case, initialize the Flask-Cors extension with default arguments in order to allow CORS for all domains on all routes.
+See the full list of options in the <a class="reference external" href="https://flask-cors.corydolphin.com/en/latest/api.html#extension">documentation</a>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">helloWorld</span><span class="p">():</span>
+  <span class="k">return</span> <span class="s2">&quot;Hello, cross-origin-world!&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="resource-specific-cors">
+<h4>Resource specific CORS<a class="headerlink" href="#resource-specific-cors" title="Permalink to this headline">¶</a></h4>
+<p>Alternatively, you can specify CORS options on a resource and origin level of granularity by passing a dictionary as the <cite>resources</cite> option, mapping paths to a set of options.
+See the full list of options in the <a class="reference external" href="https://flask-cors.corydolphin.com/en/latest/api.html#extension">documentation</a>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">cors</span> <span class="o">=</span> <span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="s2">&quot;/api/*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;origins&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">}})</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/api/v1/users&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">list_users</span><span class="p">():</span>
+  <span class="k">return</span> <span class="s2">&quot;user example&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="route-specific-cors-via-decorator">
+<h4>Route specific CORS via decorator<a class="headerlink" href="#route-specific-cors-via-decorator" title="Permalink to this headline">¶</a></h4>
+<p>This extension also exposes a simple decorator to decorate flask routes with.
+Simply add <code class="docutils literal notranslate"><span class="pre">&#64;cross_origin()</span></code> below a call to Flask’s <code class="docutils literal notranslate"><span class="pre">&#64;app.route(..)</span></code> to allow CORS on a given route.
+See the full list of options in the <a class="reference external" href="https://flask-cors.corydolphin.com/en/latest/api.html#decorator">decorator documentation</a>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="nd">@cross_origin</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">helloWorld</span><span class="p">():</span>
+  <span class="k">return</span> <span class="s2">&quot;Hello, cross-origin-world!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>For a full list of options, please see the full <a class="reference external" href="https://flask-cors.corydolphin.com/en/latest/api.html">documentation</a></p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If things aren’t working as you expect, enable logging to help understand what is going on under the hood, and why.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;flask_cors&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>A simple set of tests is included in <code class="docutils literal notranslate"><span class="pre">test/</span></code>.
+To run, install nose, and simply invoke <code class="docutils literal notranslate"><span class="pre">nosetests</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code> to exercise the tests.</p>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Questions, comments or improvements?
+Please create an issue on <a class="reference external" href="https://github.com/corydolphin/flask-cors">Github</a>, tweet at <a class="reference external" href="https://twitter.com/corydolphin">&#64;corydolphin</a> or send me an email.
+I do my best to include every contribution proposed in any way that I can.</p>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>This Flask extension is based upon the <a class="reference external" href="https://web.archive.org/web/20190128010149/http://flask.pocoo.org/snippets/56/">Decorator for the HTTP Access Control</a> written by Armin Ronacher.</p>
+<div class="toctree-wrapper compound" id="mastertoc">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Cory Dolphin
+      
+        <span class="commit">
+          Revision <code>b2c4da1f</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/master/">master</a></dd>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/3.0.10/">3.0.10</a></dd>
+        
+          <dd><a href="/en/3.0.9/">3.0.9</a></dd>
+        
+          <dd><a href="/en/3.0.7/">3.0.7</a></dd>
+        
+          <dd><a href="/en/3.0.6/">3.0.6</a></dd>
+        
+          <dd><a href="/en/3.0.5/">3.0.5</a></dd>
+        
+          <dd><a href="/en/3.0.4/">3.0.4</a></dd>
+        
+          <dd><a href="/en/3.0.3/">3.0.3</a></dd>
+        
+          <dd><a href="/en/3.0.2/">3.0.2</a></dd>
+        
+          <dd><a href="/en/3.0.1/">3.0.1</a></dd>
+        
+          <dd><a href="/en/3.0.0/">3.0.0</a></dd>
+        
+          <dd><a href="/en/2.1.3/">2.1.3</a></dd>
+        
+          <dd><a href="/en/2.1.2/">2.1.2</a></dd>
+        
+          <dd><a href="/en/2.1.1/">2.1.1</a></dd>
+        
+          <dd><a href="/en/2.1.0/">2.1.0</a></dd>
+        
+          <dd><a href="/en/2.0.1/">2.0.1</a></dd>
+        
+          <dd><a href="/en/2.0.0/">2.0.0</a></dd>
+        
+          <dd><a href="/en/2.0.0rc1/">2.0.0rc1</a></dd>
+        
+          <dd><a href="/en/1.10.3/">1.10.3</a></dd>
+        
+          <dd><a href="/en/1.10.2/">1.10.2</a></dd>
+        
+          <dd><a href="/en/1.10.1/">1.10.1</a></dd>
+        
+          <dd><a href="/en/1.10.0/">1.10.0</a></dd>
+        
+          <dd><a href="/en/1.9.0/">1.9.0</a></dd>
+        
+          <dd><a href="/en/1.8.1/">1.8.1</a></dd>
+        
+          <dd><a href="/en/v1.8.0/">v1.8.0</a></dd>
+        
+          <dd><a href="/en/v1.7.4/">v1.7.4</a></dd>
+        
+          <dd><a href="/en/v1.7.3/">v1.7.3</a></dd>
+        
+          <dd><a href="/en/v1.7.2/">v1.7.2</a></dd>
+        
+          <dd><a href="/en/v1.7.0/">v1.7.0</a></dd>
+        
+          <dd><a href="/en/v1.6.1/">v1.6.1</a></dd>
+        
+          <dd><a href="/en/v1.6.0/">v1.6.0</a></dd>
+        
+          <dd><a href="/en/v1.5.0/">v1.5.0</a></dd>
+        
+          <dd><a href="/en/v1.4.0/">v1.4.0</a></dd>
+        
+          <dd><a href="/en/v1.3.1/">v1.3.1</a></dd>
+        
+          <dd><a href="/en/v1.3.0/">v1.3.0</a></dd>
+        
+          <dd><a href="/en/v1.2.1/">v1.2.1</a></dd>
+        
+          <dd><a href="/en/v1.2.0/">v1.2.0</a></dd>
+        
+          <dd><a href="/en/v1.1.3/">v1.1.3</a></dd>
+        
+          <dd><a href="/en/v1.1.2/">v1.1.2</a></dd>
+        
+          <dd><a href="/en/v1.1.1/">v1.1.1</a></dd>
+        
+          <dd><a href="/en/v1.1/">v1.1</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//flask-cors.readthedocs.io/_/downloads/en/latest/pdf/">pdf</a></dd>
+        
+          <dd><a href="//flask-cors.readthedocs.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+          <dd><a href="//flask-cors.readthedocs.io/_/downloads/en/latest/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/flask-cors/?fromdocs=flask-cors">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/flask-cors/?fromdocs=flask-cors">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

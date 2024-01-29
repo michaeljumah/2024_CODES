@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+
+      <script>
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({"userId":65952,"visitorType":"student","batch":{"id":96,"fullNameWithC":"NBO-0423 (C#15)","schoolLocation":{"id":7,"name":"Nairobi"}},"curriculum":{"id":1,"name":"SE Foundations"}});
+
+    window.gtm_user_custom_event = function (name, options) {
+      if (typeof name === 'undefined') {
+        return;
+      }
+
+      window.dataLayer.push({
+        customEventOptions: typeof options !== 'undefined' ? options : {},
+        event: name,
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N4C8MF2');</script>
+  <!-- End Google Tag Manager -->
+
+
+    <title>Concept: REST API | Nairobi Intranet</title>
+
+      <link rel="stylesheet" href="https://use.typekit.net/xgz4ilr.css">
+      <link rel="stylesheet" media="all" href="/assets/application_alx-8941610700856adf24a6e389e4f744b0cefa6db7b3bc8157ea63b16ddcf11590.css" />
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="/assets/application-e108fb75f939d72d47f0e99c7163aee8c5572427c1e62e5b50334df42d03f2d3.js"></script>
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon_alx.ico" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="EgoeIbsuzjt3WZY8Ih3EBl_CX3T--OCceVF6y3hgsYPp4_Z2TQp2TFQnEndBoPHlr6gjOB5uZcooeeRs9caTDA" />
+
+      <link rel="apple-touch-icon" href="/apple-touch-icon_alx.png">
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+
+      <!-- intro.js for interactive onboarding -->
+
+      <!-- React -->
+      <script src="/packs/js/application-5e52ac700b37dc1d7140.js"></script>
+      <link rel="stylesheet" media="screen" href="/packs/css/application-87456da7.css" />
+  </head>
+
+  <body class="signed_in env_production notranslate"
+        translate="no"
+        class="notranslate"
+        data-theme-suffix="_alx">
+      <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4C8MF2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+      <input type="hidden" id="hbtn-slack-url" value="https://alx-students.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="My Planning"><a href="/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="Projects"><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make"><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes"><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Curriculums"><a href="/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="Concepts"><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="Conference rooms"><a href="/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers"><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="Sandboxes"><a href="/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Tools"><a href="/dashboards/my_tools"><div class="icon "><i aria-hidden="true" class="fa-solid fa-wrench "></i></div><div class="visible-xs">Tools</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Video on demand"><a href="/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers"><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain&#39;s Logs"><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/065/952/thumb/denver.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240105%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240105T221334Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=401fd77fae18b5920e287043a7437f4ec10a1dc1ea85dbe26d7662cfa1c9bd32')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="My Planning"><a href="/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="Projects"><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make"><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes"><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Curriculums"><a href="/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="Concepts"><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="Conference rooms"><a href="/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers"><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="Sandboxes"><a href="/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Tools"><a href="/dashboards/my_tools"><div class="icon "><i aria-hidden="true" class="fa-solid fa-wrench "></i></div><div class="visible-xs">Tools</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Video on demand"><a href="/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers"><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain&#39;s Logs"><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/065/952/thumb/denver.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240105%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240105T221334Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=401fd77fae18b5920e287043a7437f4ec10a1dc1ea85dbe26d7662cfa1c9bd32')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+
+    <main>
+        <div id="layout-bars">
+          
+          
+          
+          
+              <div id="captains_log_alert">
+        <a href="/captain_logs/4476424/edit">
+            <div>
+                You have a captain's log due before 2024-01-07 (in 1 day)! Log it now!
+            </div>
+</a>    </div>
+
+          
+        </div>
+
+      <article class="pending_logs">
+
+        
+<h1 class="d-flex flex-column gap-2">
+  <span>REST API</span>
+</h1>
+
+<div>
+  
+</div>
+
+<div class="gap formatted-content">
+    <p>REST API is a software architectural style for Backend.</p>
+
+<p><strong>REST = &ldquo;REpresentational State Transfer&rdquo;.</strong>
+<strong>API = Application Programming Interface</strong></p>
+
+<p>Its purpose is to induce performance, scalability, simplicity, modifiability, visibility, portability, and reliability.</p>
+
+<p>REST API is <strong>Resource-based</strong>, a resource is an object and can be access by a URI. 
+An object is &ldquo;displayed&rdquo;/transferred via a <strong>representation</strong> (typically JSON). 
+HTTP methods will be actions on a resource.</p>
+
+<p>Example:</p>
+
+<ul>
+<li>Resource: <code>Person</code> (John)</li>
+<li>Service: contact information (<code>GET</code>)</li>
+<li>Representation: 
+
+<ul>
+<li><code>first_name</code>, <code>last_name</code>, <code>date_of_birth</code></li>
+<li>JSON format</li>
+</ul></li>
+</ul>
+
+<h2>There are 6 constraints:</h2>
+
+<h2>1. Uniform Interface</h2>
+
+<ul>
+<li>Define the interface between client-server </li>
+<li>Simple and can be split in small parts</li>
+</ul>
+
+<h4>HTTP verbs</h4>
+
+<ul>
+<li><code>GET</code>:
+
+<ul>
+<li>Read representation of a resource or a list of resources</li>
+</ul></li>
+<li><code>POST</code>:
+
+<ul>
+<li>Create a new resource</li>
+</ul></li>
+<li><code>PUT</code>:
+
+<ul>
+<li>Update an existing resource</li>
+</ul></li>
+<li><code>DELETE</code>:
+
+<ul>
+<li>Remove an existing resource</li>
+</ul></li>
+</ul>
+
+<h4>URIs - resource name</h4>
+
+<p>A resource representation is accessible by a URI:</p>
+
+<ul>
+<li><code>GET /users</code>: path for listing all user resources </li>
+<li><code>GET /users/12</code>: path for the user <code>id = 12</code></li>
+<li><code>GET /users/12/addresses</code>: path for listing all addresses of the user <code>id = 12</code></li>
+<li><code>POST /users</code>: path for creating a user resource</li>
+<li><code>PUT /users/12</code>: path for updating the user <code>id = 12</code></li>
+<li><code>DELETE /users/12/addresses/2</code>: path for deleting the address <code>id = 2</code> of the user <code>id = 12</code></li>
+</ul>
+
+<h4>HTTP Response</h4>
+
+<p>In the HTTP Response, the client should verify the information of two things:</p>
+
+<ul>
+<li>status code: result of the action</li>
+<li>body: JSON or XML representation of resources</li>
+</ul>
+
+<p>Some important status code:</p>
+
+<ul>
+<li><code>200</code>: OK</li>
+<li><code>201</code>: created =&gt; after a <code>POST</code> request</li>
+<li><code>204</code>: no content =&gt; can be return after a <code>DELETE</code> request</li>
+<li><code>400</code>: bad request =&gt; the server doesn&rsquo;t understand the request </li>
+<li><code>401</code>: unauthorized =&gt; client user can&rsquo;t be identified</li>
+<li><code>403</code>: forbidden =&gt; client user is identified but not allowed to access a resource</li>
+<li><code>404</code>: not found =&gt; resource doesn&rsquo;t exist</li>
+<li><code>500</code>: internal server error</li>
+</ul>
+
+<h2>2. Stateless</h2>
+
+<p>The server is independent of the client. 
+The server doesn&rsquo;t store user client information/state.
+Each request contains enough context to process it (HTTP Headers, etc.)</p>
+
+<p>Some authentication systems like OAuth have to store information on the server side but they do it with REST API design. </p>
+
+<h2>3. Cacheable</h2>
+
+<p>All server responses (resource representation) are cacheable:</p>
+
+<ul>
+<li>Explicit</li>
+<li>Implicit</li>
+<li>Negotiated</li>
+</ul>
+
+<p>Caches are here to improve performances. In a REST API, clients don&rsquo;t care about the caching strategy, if the resource representation comes from a cache or from a database&hellip;</p>
+
+<h2>4. Client-Server</h2>
+
+<p>REST API is designed to separate Client from the Server.
+The server doesn&rsquo;t know who is talking to it.
+Clients are not concerned with data storage =&gt; the portability of client code is improved.
+Servers are not concerned with the user interface or user state so that servers can be simpler and more scalable</p>
+
+<h2>5. Layered System</h2>
+
+<p>Client can&rsquo;t assume direct connection to server.
+Intermediary servers may improve system scalability by enabling load-balancing and by providing shared caches. 
+Layers may also enforce security policies.</p>
+
+<h2>6. Code on Demand (optional)</h2>
+
+<p>Server can temporarily:</p>
+
+<ul>
+<li>Transfer logic to client</li>
+<li>Allow client to execute logic</li>
+<li>Example: JavaScript</li>
+</ul>
+
+</div>
+
+
+      </article>
+
+      <div class="copyright">Copyright © 2024 ALX, All rights reserved.</div>
+
+    </main>
+
+        <button class="btn btn-primary atop-zendesk" id="search-button" data-search-active="false" data-toggle="modal" data-target="#search-modal">
+  <i aria-hidden="true" class="fa-solid fa-magnifying-glass "></i>
+  <i aria-hidden="true" class="fa-solid fa-window-minimize "></i>
+</button>
+
+        <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar"
+            autocomplete="off"
+            type="text"
+            name="hbtn-search-bar"
+            placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>> This is a quote.
+> It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0e932b79-b1e7-49d4-88a9-75d1fc357a07"></script>
+        <script type="text/javascript">
+          zE('webWidget', 'prefill', {
+              email: {
+                  value: 'michaeljumah8@gmail.com',
+                  readOnly: true
+              }
+          });
+        </script>
+  </body>
+</html>
