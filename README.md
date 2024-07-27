@@ -1,1 +1,1 @@
-All codes for practice for the yoear 2024 goes here
+All codes for practice for the year 2024 goes here
